@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Costo - 3D Material</title>
+    <link rel="stylesheet" href="assets/css/calculadora.css">
+    <link href="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/common.css">
+</head>
+<body>
+    <div class="custom-cursor"></div>
+    <script>
+        document.addEventListener('mousemove', (e) => {
+            const cursor = document.querySelector('.custom-cursor');
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+    </script>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+                    
+            <a href="index.html" class="back-btn">
+                <ion-icon name="arrow-back-outline"></ion-icon>
+                Volver
+            </a>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="calculator-section">
+                <div class="calculator-header">
+                    <h2>Calculadora básica de costo de impresión</h2>
+                    <p>
+                        ¿Solo necesitas estimar el costo de una impresión? Usa esta calculadora rápida basada en peso y precio por kilo. Para funciones más completas, descarga la app de 3D Material.
+                    </p>
+                </div>
+
+                <div class="calculator-grid">
+                    <!-- Section 1: Material Cost -->
+                    <div class="input-card">
+                        <h3 class="section-title">
+                            <span class="section-number">1.</span>
+                            Datos del Material
+                        </h3>
+                        <div class="input-group">
+                            <label for="materialType">
+                                <ion-icon name="layers-outline"></ion-icon>
+                                Tipo de cálculo
+                            </label>
+                            <select id="materialType" onchange="toggleMaterialMode()">
+                                <option value="single">Material único</option>
+                                <option value="multi">Múltiples materiales</option>
+                            </select>
+                        </div>
+                        
+                        <!-- Material único -->
+                        <div id="singleMaterial">
+                            <div class="input-group">
+                                <label for="materialPrice">
+                                    <ion-icon name="cash-outline"></ion-icon>
+                                    Precio del Material ($)
+                                </label>
+                                <input type="number" id="materialPrice" placeholder="Ej: 200" min="0" step="0.01" oninput="calculateAll()">
+                            </div>
+                            <div class="input-group">
+                                <label for="totalQuantity">
+                                    <ion-icon name="cube-outline"></ion-icon>
+                                    Cantidad Total del Envase (g/ml)
+                                </label>
+                                <input type="number" id="totalQuantity" placeholder="Ej: 1000" min="0" step="0.1" oninput="calculateAll()">
+                            </div>
+                            <div class="input-group">
+                                <label for="usedQuantity">
+                                    <ion-icon name="scale-outline"></ion-icon>
+                                    Cantidad Usada en la Impresión (g/ml)
+                                </label>
+                                <input type="number" id="usedQuantity" placeholder="Ej: 66" min="0" step="0.1" oninput="calculateAll()">
+                            </div>
+                        </div>
+                        
+                        <!-- Múltiples materiales -->
+                        <div id="multiMaterial" style="display: none;">
+                            <div id="materialsList">
+                                <div class="material-item">
+                                    <h4>Material 1</h4>
+                                    <div class="input-group">
+                                        <label>Nombre del material:</label>
+                                        <input type="text" class="material-name" placeholder="Ej: PLA Negro">
+                                    </div>
+                                    <div class="input-group">
+                                        <label>Precio (por kg/rollo) ($):</label>
+                                        <input type="number" class="material-price" step="0.01" placeholder="Ej: 200" oninput="calculateAll()">
+                                    </div>
+                                    <div class="input-group">
+                                        <label>Cantidad total del envase (g/ml):</label>
+                                        <input type="number" class="material-total" step="0.1" placeholder="Ej: 1000" oninput="calculateAll()">
+                                    </div>
+                                    <div class="input-group">
+                                        <label>Cantidad usada (g/ml):</label>
+                                        <input type="number" class="material-used" step="0.1" placeholder="Ej: 66" oninput="calculateAll()">
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-secondary" onclick="addMaterial()">+ Agregar Material</button>
+                        </div>
+                        <div class="summary-item">
+                            <span>Costo de Material:</span>
+                            <span id="materialCost">$0.00</span>
+                        </div>
+                    </div>
+
+                    <!-- Section 2: Labor Cost -->
+                    <div class="input-card">
+                        <h3 class="section-title">
+                            <span class="section-number">2.</span>
+                            Costo de Mano de Obra
+                        </h3>
+                        <div class="input-group">
+                            <label for="workHours">
+                                <ion-icon name="time-outline"></ion-icon>
+                                Tiempo de Trabajo (Horas)
+                            </label>
+                            <input type="number" id="workHours" placeholder="Ej: 0.5" min="0" step="0.1" oninput="calculateAll()">
+                        </div>
+                        <div class="input-group">
+                            <label for="hourlyRate">
+                                <ion-icon name="person-outline"></ion-icon>
+                                Costo por Hora ($)
+                            </label>
+                            <input type="number" id="hourlyRate" placeholder="Ej: 100" min="0" step="0.01" oninput="calculateAll()">
+                        </div>
+                        <div class="summary-item">
+                            <span>Costo de Mano de Obra:</span>
+                            <span id="laborCost">$0.00</span>
+                        </div>
+                    </div>
+
+                    <!-- Section 3: Additional Costs -->
+                    <div class="input-card">
+                        <h3 class="section-title">
+                            <span class="section-number">3.</span>
+                            Otros Gastos
+                        </h3>
+                        <div class="input-group">
+                            <label for="printTime">
+                                <ion-icon name="time-outline"></ion-icon>
+                                Tiempo de impresión (horas)
+                            </label>
+                            <input type="number" id="printTime" placeholder="Ej: 3.5" min="0" step="0.1" oninput="calculateElectricity()">
+                        </div>
+                        <div class="input-group">
+                            <label for="printerWatts">
+                                <ion-icon name="flash-outline"></ion-icon>
+                                Consumo de la impresora (watts)
+                            </label>
+                            <input type="number" id="printerWatts" placeholder="Ej: 200" min="0" step="1" oninput="calculateElectricity()">
+                        </div>
+                        <div class="input-group">
+                            <label for="electricityRate">
+                                <ion-icon name="cash-outline"></ion-icon>
+                                Costo por kWh ($)
+                            </label>
+                            <input type="number" id="electricityRate" placeholder="Ej: 0.15" min="0" step="0.01" oninput="calculateElectricity()">
+                        </div>
+                        <div class="summary-item">
+                            <span>Costo eléctrico:</span>
+                            <span id="electricityTotal">$0.00</span>
+                        </div>
+                        <div class="input-group">
+                            <label for="miscCosts">
+                                <ion-icon name="build-outline"></ion-icon>
+                                Gastos Varios Adicionales ($)
+                            </label>
+                            <input type="number" id="miscCosts" placeholder="Ej: 3" min="0" step="0.01" oninput="calculateAll()">
+                        </div>
+                        <div class="summary-item">
+                            <span>Otros Gastos:</span>
+                            <span id="otherCosts">$0.00</span>
+                        </div>
+                    </div>
+
+                    <!-- Section 4: Summary and Final Price -->
+                    <div class="summary-card">
+                        <h3 class="section-title">
+                            <span class="section-number">4.</span>
+                            Resumen de Costos
+                        </h3>
+                        
+                        <div class="summary-items">
+                            <div class="summary-item">
+                                <span>Materiales:</span>
+                                <span id="summaryMaterial">$0.00</span>
+                            </div>
+                            <div class="summary-item">
+                                <span>Mano de Obra:</span>
+                                <span id="summaryLabor">$0.00</span>
+                            </div>
+                            <div class="summary-item">
+                                <span>Otros Gastos:</span>
+                                <span id="summaryOther">$0.00</span>
+                            </div>
+                        </div>
+
+                        <hr class="summary-divider">
+                        <div class="production-cost">
+                            <span>Costo de Producción:</span>
+                            <span id="productionCost">$0.00</span>
+                        </div>
+
+                        <hr class="summary-divider">
+                        <div class="profit-section">
+                            <div class="input-group">
+                                <label for="profitMargin">
+                                    <ion-icon name="trending-up-outline"></ion-icon>
+                                    Porcentaje de Ganancia (%)
+                                </label>
+                                <input type="number" id="profitMargin" placeholder="30" min="0" step="1" value="30" oninput="calculateAll()">
+                            </div>
+                            
+                            <div class="sale-price">
+                                <span>Precio de Venta:</span>
+                                <span id="finalPrice">$0.00</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Action Button -->
+                    <div class="action-section">
+                        <button onclick="clearAll()" class="clear-button">
+                            <ion-icon name="refresh-outline"></ion-icon>
+                            Limpiar y Calcular de Nuevo
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Example Section -->
+                <div class="input-card example-section">
+                    <h3>Ejemplo de cálculo:</h3>
+                    <div class="summary-items">
+                        <div class="summary-item">
+                            <span>Peso:</span>
+                            <span>25 gramos</span>
+                        </div>
+                        <div class="summary-item">
+                            <span>Precio/kg:</span>
+                            <span>$30.00</span>
+                        </div>
+                        <hr class="summary-divider">
+                        <div class="summary-item">
+                            <span>Costo:</span>
+                            <span>$0.75</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Info Section -->
+                <div class="input-card info-section">
+                    <h3>Nota importante</h3>
+                    <p>Esta calculadora proporciona una estimación básica basada únicamente en el costo del material. No incluye costos de electricidad, tiempo de impresión, desgaste de la impresora u otros factores.</p>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2024 3D Material. Herramienta para makers y entusiastas de la impresión 3D.</p>
+        </footer>
+    </div>
+
+    <script>
+        let materialCount = 1;
+        
+        function toggleMaterialMode() {
+            const materialType = document.getElementById('materialType').value;
+            const singleMaterial = document.getElementById('singleMaterial');
+            const multiMaterial = document.getElementById('multiMaterial');
+            
+            if (materialType === 'single') {
+                singleMaterial.style.display = 'block';
+                multiMaterial.style.display = 'none';
+            } else {
+                singleMaterial.style.display = 'none';
+                multiMaterial.style.display = 'block';
+            }
+            calculateAll();
+        }
+        
+        function addMaterial() {
+            materialCount++;
+            const materialsList = document.getElementById('materialsList');
+            const newMaterial = document.createElement('div');
+            newMaterial.className = 'material-item';
+            newMaterial.innerHTML = `
+                <h4>Material ${materialCount} <button type="button" class="btn-remove" onclick="removeMaterial(this)">×</button></h4>
+                <div class="input-group">
+                    <label>Nombre del material:</label>
+                    <input type="text" class="material-name" placeholder="Ej: PETG Transparente">
+                </div>
+                <div class="input-group">
+                    <label>Precio (por kg/rollo) ($):</label>
+                    <input type="number" class="material-price" step="0.01" placeholder="Ej: 250" oninput="calculateAll()">
+                </div>
+                <div class="input-group">
+                    <label>Cantidad total del envase (g/ml):</label>
+                    <input type="number" class="material-total" step="0.1" placeholder="Ej: 1000" oninput="calculateAll()">
+                </div>
+                <div class="input-group">
+                    <label>Cantidad usada (g/ml):</label>
+                    <input type="number" class="material-used" step="0.1" placeholder="Ej: 45" oninput="calculateAll()">
+                </div>
+            `;
+            materialsList.appendChild(newMaterial);
+        }
+        
+        function removeMaterial(button) {
+            button.closest('.material-item').remove();
+            calculateAll();
+        }
+        
+        function calculateElectricity() {
+            const printTime = parseFloat(document.getElementById('printTime').value) || 0;
+            const printerWatts = parseFloat(document.getElementById('printerWatts').value) || 0;
+            const electricityRate = parseFloat(document.getElementById('electricityRate').value) || 0;
+            
+            // Calcular consumo en kWh
+            const kWhUsed = (printerWatts * printTime) / 1000;
+            const electricityCost = kWhUsed * electricityRate;
+            
+            document.getElementById('electricityTotal').textContent = `$${electricityCost.toFixed(2)}`;
+            calculateAll();
+        }
+        
+        function calculateAll() {
+            let materialCost = 0;
+            
+            // Calcular costo de material según el modo
+            const materialType = document.getElementById('materialType').value;
+            
+            if (materialType === 'single') {
+                const materialPrice = parseFloat(document.getElementById('materialPrice').value) || 0;
+                const totalQuantity = parseFloat(document.getElementById('totalQuantity').value) || 0;
+                const usedQuantity = parseFloat(document.getElementById('usedQuantity').value) || 0;
+                
+                materialCost = totalQuantity > 0 ? (materialPrice * usedQuantity) / totalQuantity : 0;
+            } else {
+                // Múltiples materiales
+                const materialItems = document.querySelectorAll('.material-item');
+                materialItems.forEach(item => {
+                    const price = parseFloat(item.querySelector('.material-price').value) || 0;
+                    const total = parseFloat(item.querySelector('.material-total').value) || 0;
+                    const used = parseFloat(item.querySelector('.material-used').value) || 0;
+                    
+                    if (total > 0) {
+                        materialCost += (price * used) / total;
+                    }
+                });
+            }
+            
+            document.getElementById('materialCost').textContent = `$${materialCost.toFixed(2)}`;
+            
+            // Obtener valores de mano de obra
+            const workHours = parseFloat(document.getElementById('workHours').value) || 0;
+            const hourlyRate = parseFloat(document.getElementById('hourlyRate').value) || 0;
+            
+            // Calcular costo de mano de obra
+            const laborCost = workHours * hourlyRate;
+            document.getElementById('laborCost').textContent = `$${laborCost.toFixed(2)}`;
+            
+            // Obtener costo eléctrico y otros costos
+            const electricityCost = parseFloat(document.getElementById('electricityTotal').textContent.replace('$', '')) || 0;
+            const miscCosts = parseFloat(document.getElementById('miscCosts').value) || 0;
+            
+            // Calcular total otros gastos
+            const otherTotal = electricityCost + miscCosts;
+            document.getElementById('otherCosts').textContent = `$${otherTotal.toFixed(2)}`;
+            
+            // Calcular costo de producción
+            const productionCost = materialCost + laborCost + otherTotal;
+            document.getElementById('productionCost').textContent = `$${productionCost.toFixed(2)}`;
+            
+            // Calcular precio final con ganancia
+            const profitMargin = parseFloat(document.getElementById('profitMargin').value) || 0;
+            const finalPrice = productionCost * (1 + profitMargin / 100);
+            document.getElementById('finalPrice').textContent = `$${finalPrice.toFixed(2)}`;
+            
+            // Actualizar desglose
+            document.getElementById('summaryMaterial').textContent = `$${materialCost.toFixed(2)}`;
+            document.getElementById('summaryLabor').textContent = `$${laborCost.toFixed(2)}`;
+            document.getElementById('summaryOther').textContent = `$${otherTotal.toFixed(2)}`;
+        }
+        
+        function clearAll() {
+            // Limpiar campos de material único
+            document.getElementById('materialPrice').value = '';
+            document.getElementById('totalQuantity').value = '';
+            document.getElementById('usedQuantity').value = '';
+            
+            // Limpiar múltiples materiales
+            const materialsList = document.getElementById('materialsList');
+            materialsList.innerHTML = `
+                <div class="material-item">
+                    <h4>Material 1</h4>
+                    <div class="input-group">
+                        <label>Nombre del material:</label>
+                        <input type="text" class="material-name" placeholder="Ej: PLA Negro">
+                    </div>
+                    <div class="input-group">
+                        <label>Precio (por kg/rollo) ($):</label>
+                        <input type="number" class="material-price" step="0.01" placeholder="Ej: 200" oninput="calculateAll()">
+                    </div>
+                    <div class="input-group">
+                        <label>Cantidad total del envase (g/ml):</label>
+                        <input type="number" class="material-total" step="0.1" placeholder="Ej: 1000" oninput="calculateAll()">
+                    </div>
+                    <div class="input-group">
+                        <label>Cantidad usada (g/ml):</label>
+                        <input type="number" class="material-used" step="0.1" placeholder="Ej: 66" oninput="calculateAll()">
+                    </div>
+                </div>
+            `;
+            materialCount = 1;
+            
+            // Limpiar otros campos
+            document.getElementById('workHours').value = '';
+            document.getElementById('hourlyRate').value = '';
+            document.getElementById('printTime').value = '';
+            document.getElementById('printerWatts').value = '';
+            document.getElementById('electricityRate').value = '';
+            document.getElementById('miscCosts').value = '';
+            document.getElementById('profitMargin').value = '30';
+            
+            // Resetear modo a material único
+            document.getElementById('materialType').value = 'single';
+            toggleMaterialMode();
+            
+            // Limpiar resultados
+            document.getElementById('materialCost').textContent = '$0.00';
+            document.getElementById('laborCost').textContent = '$0.00';
+            document.getElementById('electricityTotal').textContent = '$0.00';
+            document.getElementById('otherCosts').textContent = '$0.00';
+            document.getElementById('productionCost').textContent = '$0.00';
+            document.getElementById('finalPrice').textContent = '$0.00';
+            document.getElementById('summaryMaterial').textContent = '$0.00';
+            document.getElementById('summaryLabor').textContent = '$0.00';
+            document.getElementById('summaryOther').textContent = '$0.00';
+            
+            // Focus on first input
+            document.getElementById('materialPrice').focus();
+        }
+        
+        // Initialize with default profit margin
+        document.addEventListener('DOMContentLoaded', function() {
+            calculateAll();
+        });
+    </script>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

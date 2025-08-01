@@ -1,0 +1,310 @@
+@import 'common.css';
+
+/* ========================================================================== 
+   Estilos para la Calculadora (calculadora.html) 
+   ========================================================================== */ 
+
+.header {
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 40px;
+}
+
+.back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--secondary-text-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.back-btn:hover {
+    color: var(--accent-color);
+}
+
+.back-btn ion-icon {
+    font-size: 1.2rem;
+}
+
+.calculator-section { 
+    padding: 60px 0; 
+} 
+
+.calculator-header { 
+    text-align: center; 
+    margin-bottom: 40px; 
+} 
+
+.calculator-logo { 
+    width: 80px; 
+    height: auto; 
+    margin-bottom: 20px; 
+} 
+
+.calculator-section h2 { 
+    margin-bottom: 1rem; 
+    font-size: 2.5rem; 
+}
+
+.calculator-section > p {
+    color: var(--secondary-text-color);
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Estilos para el botón de remover material */
+.btn-remove {
+    background: none;
+    border: none;
+    color: var(--danger-color);
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 0 5px;
+    float: right;
+    transition: color 0.2s ease;
+}
+
+.btn-remove:hover {
+    color: #ff4444;
+}
+
+.material-item h4 {
+    color: var(--accent-color);
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.material-item {
+    background-color: rgba(37, 37, 37, 0.5);
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.btn.btn-secondary {
+    background: none;
+    border: 2px solid var(--accent-color);
+    color: var(--accent-color);
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn.btn-secondary:hover {
+    background-color: var(--accent-color);
+    color: var(--dark-color);
+} 
+
+.calculator-grid { 
+    display: grid; 
+    grid-template-columns: 1fr; /* Una columna por defecto */ 
+    gap: 30px; 
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+@media (min-width: 992px) {
+    .calculator-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .summary-card {
+        grid-column: 2;
+        grid-row: 1 / span 3;
+    }
+
+    .action-section {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 768px) {
+    .calculator-section {
+        padding: 30px 0;
+    }
+
+    .calculator-section h2 {
+        font-size: 2rem;
+    }
+
+    .input-card,
+    .summary-card {
+        padding: 15px;
+    }
+
+    .input-card input,
+    .input-card select,
+    .profit-section input {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+
+    .profit-section input {
+        font-size: 1rem;
+    }
+} 
+
+/* Tarjeta para cada sección de entradas */ 
+.input-card { 
+    background-color: var(--card-color); 
+    border: 1px solid var(--border-color); 
+    border-radius: 12px; 
+    padding: 20px; 
+    margin-bottom: 20px; 
+} 
+
+.input-card h3 { 
+    color: var(--accent-color); 
+    margin-bottom: 15px; 
+} 
+
+.input-card label { 
+    display: flex; 
+    align-items: center; 
+    gap: 8px; 
+    color: var(--secondary-text-color); 
+    margin-bottom: 8px; 
+    font-size: 0.9rem; 
+}
+
+.input-card label ion-icon {
+    font-size: 1.2rem;
+    color: var(--accent-color);
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group:last-child {
+    margin-bottom: 0;
+} 
+
+/* Estilo unificado para todos los inputs y selects */ 
+.input-card input,
+.input-card select, 
+.profit-section input { 
+    width: 100%; 
+    background-color: #252525; 
+    border: 1px solid var(--border-color); 
+    color: var(--primary-text-color); 
+    padding: 12px; 
+    border-radius: 8px; 
+    font-size: 1rem; 
+    margin-bottom: 15px; 
+    transition: border-color 0.2s ease, box-shadow 0.2s ease; 
+} 
+
+.input-card input:focus,
+.input-card select:focus, 
+.profit-section input:focus { 
+    outline: none; 
+    border-color: var(--accent-color); 
+    box-shadow: 0 0 0 3px rgba(0, 230, 118, 0.2); 
+} 
+
+.profit-section input { 
+    text-align: center; 
+    font-weight: 700; 
+    font-size: 1.2rem; 
+    color: var(--accent-color); 
+} 
+
+/* Tarjeta de Resumen */ 
+.summary-card { 
+    background-color: var(--card-color); 
+    border: 1px solid var(--accent-color); 
+    border-radius: 12px; 
+    padding: 20px; 
+    position: sticky; 
+    top: 100px; /* Para que se quede fija al hacer scroll */ 
+} 
+
+.summary-card h3 { 
+    text-align: center; 
+    margin-bottom: 20px; 
+} 
+
+.summary-item, .summary-total { 
+    display: flex; 
+    justify-content: space-between; 
+    margin-bottom: 12px; 
+    font-size: 1.1rem; 
+} 
+
+.summary-item span:first-child { 
+    color: var(--secondary-text-color); 
+} 
+
+.summary-item span:last-child { 
+    font-weight: 700; 
+    color: var(--accent-yellow); 
+} 
+
+.summary-divider { 
+    border: 0; 
+    height: 1px; 
+    background-color: var(--border-color); 
+    margin: 20px 0; 
+} 
+
+.production-cost span { 
+    font-weight: 700; 
+    font-size: 1.3rem; 
+} 
+
+.production-cost span:last-child { 
+    color: var(--accent-orange); 
+} 
+
+.sale-price span { 
+    font-weight: 900; 
+    font-size: 1.5rem; 
+} 
+
+.sale-price span:last-child { 
+    color: var(--accent-color); 
+} 
+
+.profit-section { 
+    margin-top: 20px; 
+} 
+
+.profit-section label { 
+    display: block; 
+    margin-bottom: 5px; 
+} 
+
+.clear-button { 
+    width: 100%; 
+    margin-top: 20px; 
+    background-color: #333; 
+    color: var(--secondary-text-color); 
+    border: 1px solid var(--border-color); 
+    padding: 12px; 
+    border-radius: 8px; 
+    cursor: pointer; 
+    transition: background-color 0.2s, color 0.2s; 
+} 
+
+.clear-button:hover { 
+    background-color: var(--accent-orange); 
+    color: var(--background-color); 
+} 
+
+/* Responsividad para la calculadora */ 
+@media (min-width: 992px) { 
+    .calculator-grid { 
+        grid-template-columns: 1fr 1fr; /* Dos columnas en pantallas grandes */ 
+    } 
+}

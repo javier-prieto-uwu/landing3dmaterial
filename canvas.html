@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modelo Canvas - 3DMaterial</title>
+    <link rel="stylesheet" href="assets/css/canvas.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/common.css">
+</head>
+<body>
+    <div class="custom-cursor"></div>
+    <script>
+        document.addEventListener('mousemove', (e) => {
+            const cursor = document.querySelector('.custom-cursor');
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+    </script>
+    <header class="header">
+        <nav class="navbar">
+
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link">Inicio</a></li>
+                <li class="nav-item"><a href="equipo.html" class="nav-link">Equipo</a></li>
+                <li class="nav-item"><a href="problematica.html" class="nav-link">Problemática</a></li>
+                <li class="nav-item"><a href="solucion.html" class="nav-link">Solución</a></li>
+                <li class="nav-item"><a href="canvas.html" class="nav-link active">Canvas</a></li>
+                <li class="nav-item"><a href="demostracion.html" class="nav-link">Demo</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="section">
+            <div class="container">
+                <div class="text-container">
+                    <h2>Canvas de Modelo de Negocio</h2>
+                    <p class="section-intro">Estructura completa del modelo de negocio para 3D Material, definiendo los componentes clave para el éxito empresarial.</p>
+                </div>
+                
+                <div class="canvas-grid">
+                    <div class="canvas-card partners">
+                        <div class="canvas-header">
+                            <ion-icon name="people-outline"></ion-icon>
+                            <h4>Socios Clave</h4>
+                        </div>
+                        <ul>
+                            <li><ion-icon name="business-outline"></ion-icon> Redes publicitarias (AdMob)</li>
+                            <li><ion-icon name="cloud-outline"></ion-icon> Plataforma en la nube (Firebase)</li>
+                            <li><ion-icon name="people-outline"></ion-icon> Comunidades maker</li>
+                        </ul>
+                    </div>
+                    <div class="canvas-card activities">
+                        <div class="canvas-header">
+                            <ion-icon name="construct-outline"></ion-icon>
+                            <h4>Actividades Clave</h4>
+                        </div>
+                        <ul>
+                            <li><ion-icon name="code-slash-outline"></ion-icon> Desarrollo y mantenimiento</li>
+                            <li><ion-icon name="server-outline"></ion-icon> Gestión de datos</li>
+                            <li><ion-icon name="headset-outline"></ion-icon> Soporte comunitario</li>
+                        </ul>
+                    </div>
+                    <div class="canvas-card value">
+                        <div class="canvas-header">
+                            <ion-icon name="diamond-outline"></ion-icon>
+                            <h4>Propuesta de Valor</h4>
+                        </div>
+                        <p>Gestión integral gratuita de inventario 3D con interfaz intuitiva y escalabilidad desde uso personal hasta pequeños negocios.</p>
+                    </div>
+                    <div class="canvas-card relationship">
+                        <div class="canvas-header">
+                            <ion-icon name="heart-outline"></ion-icon>
+                            <h4>Relación con Clientes</h4>
+                        </div>
+                        <ul>
+                            <li><ion-icon name="shield-checkmark-outline"></ion-icon> Confianza y seguridad</li>
+                            <li><ion-icon name="headset-outline"></ion-icon> Soporte técnico</li>
+                            <li><ion-icon name="people-outline"></ion-icon> Comunidad activa</li>
+                        </ul>
+                    </div>
+                    <div class="canvas-card segments">
+                        <div class="canvas-header">
+                            <ion-icon name="people-circle-outline"></ion-icon>
+                            <h4>Segmentos de Clientes</h4>
+                        </div>
+                        <ul>
+                            <li><ion-icon name="person-outline"></ion-icon> Makers individuales</li>
+                            <li><ion-icon name="school-outline"></ion-icon> Estudiantes</li>
+                            <li><ion-icon name="storefront-outline"></ion-icon> Pequeños emprendedores</li>
+                        </ul>
+                    </div>
+                    <div class="canvas-card resources">
+                        <div class="canvas-header">
+                            <ion-icon name="library-outline"></ion-icon>
+                            <h4>Recursos Clave</h4>
+                        </div>
+                        <ul>
+                            <li><ion-icon name="code-slash-outline"></ion-icon> Código fuente</li>
+                            <li><ion-icon name="cloud-outline"></ion-icon> Infraestructura cloud</li>
+                            <li><ion-icon name="people-outline"></ion-icon> Equipo especializado</li>
+                        </ul>
+                    </div>
+                    <div class="canvas-card channels">
+                        <div class="canvas-header">
+                            <ion-icon name="radio-outline"></ion-icon>
+                            <h4>Canales</h4>
+                        </div>
+                        <ul>
+                            <li><ion-icon name="phone-portrait-outline"></ion-icon> Google Play Store</li>
+                            <li><ion-icon name="logo-instagram"></ion-icon> Redes sociales</li>
+                            <li><ion-icon name="chatbubbles-outline"></ion-icon> Foros especializados</li>
+                        </ul>
+                    </div>
+                    <div class="canvas-card cost">
+                        <div class="canvas-header">
+                            <ion-icon name="card-outline"></ion-icon>
+                            <h4>Estructura de Costos</h4>
+                        </div>
+                        <p>Desarrollo de software, infraestructura cloud, marketing digital y recursos humanos especializados.</p>
+                    </div>
+                    <div class="canvas-card revenue">
+                        <div class="canvas-header">
+                            <ion-icon name="cash-outline"></ion-icon>
+                            <h4>Fuentes de Ingresos</h4>
+                        </div>
+                        <p>Publicidad no intrusiva, versión premium futura, partnerships y comisiones por ventas.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 3DMaterial - TI51BISDSM Team 1. Todos los derechos reservados.</p>
+    </footer>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

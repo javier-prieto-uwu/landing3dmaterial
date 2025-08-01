@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problemática - 3DMaterial</title>
+    <link rel="stylesheet" href="assets/css/content.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/common.css">
+</head>
+<body>
+    <div class="custom-cursor"></div>
+    <script>
+        document.addEventListener('mousemove', (e) => {
+            const cursor = document.querySelector('.custom-cursor');
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+    </script>
+    <header class="header">
+        <nav class="navbar">
+ 
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link">Inicio</a></li>
+                <li class="nav-item"><a href="equipo.html" class="nav-link">Equipo</a></li>
+                <li class="nav-item"><a href="problematica.html" class="nav-link active">Problemática</a></li>
+                <li class="nav-item"><a href="solucion.html" class="nav-link">Solución</a></li>
+                <li class="nav-item"><a href="canvas.html" class="nav-link">Canvas</a></li>
+                <li class="nav-item"><a href="demostracion.html" class="nav-link">Demo</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="section">
+            <div class="text-container">
+                <h3>Problemática</h3>
+                <p class="section-intro">
+                   En entornos como escuelas, makerspaces y talleres personales, la gestión de materiales para impresión 3D es a menudo caótica. La falta de un sistema centralizado provoca una serie de problemas que afectan directamente la eficiencia y rentabilidad.
+                </p>
+                
+                <ul class="problem-list">
+                    <li>
+                        <div class="problem-icon">
+                            <ion-icon name="warning-outline"></ion-icon>
+                        </div>
+                        <div class="problem-text">
+                            <h4>Pérdida de Inventario</h4>
+                            <p>Es difícil saber cuánto material queda realmente, lo que lleva a compras innecesarias o a quedarse sin stock en momentos críticos, generando pérdidas económicas significativas.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="problem-icon">
+                            <ion-icon name="calculator-outline"></ion-icon>
+                        </div>
+                        <div class="problem-text">
+                            <h4>Cálculos de Costos Imprecisos</h4>
+                            <p>Sin un registro claro y sistemático, es casi imposible calcular el costo real de una impresión, afectando directamente la rentabilidad y planificación de los proyectos.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="problem-icon">
+                            <ion-icon name="time-outline"></ion-icon>
+                        </div>
+                        <div class="problem-text">
+                            <h4>Falta de Historial</h4>
+                            <p>No tener un historial detallado de impresiones dificulta la replicación de proyectos exitosos, el aprendizaje de errores pasados y la optimización de procesos.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="problem-icon">
+                            <ion-icon name="trending-down-outline"></ion-icon>
+                        </div>
+                        <div class="problem-text">
+                            <h4>Ineficiencia Operativa</h4>
+                            <p>La gestión manual y desorganizada genera pérdidas de tiempo, duplicación de esfuerzos y reduce la productividad general del taller o makerspace.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 3DMaterial - TI51BISDSM Team 1. Todos los derechos reservados.</p>
+    </footer>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

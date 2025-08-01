@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Material - Calcula, Imprime, Gana</title>
+    <link rel="stylesheet" href="assets/css/demostracion.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/common.css">
+</head>
+<body>
+    <div class="custom-cursor"></div>
+    <script>
+        document.addEventListener('mousemove', (e) => {
+            const cursor = document.querySelector('.custom-cursor');
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+    </script>
+    <header class="header">
+        <nav class="navbar container">
+
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link">Inicio</a></li>
+                <li class="nav-item"><a href="equipo.html" class="nav-link">Equipo</a></li>
+                <li class="nav-item"><a href="problematica.html" class="nav-link">Problemática</a></li>
+                <li class="nav-item"><a href="solucion.html" class="nav-link">Solución</a></li>
+                <li class="nav-item"><a href="canvas.html" class="nav-link">Canvas</a></li>
+                <li class="nav-item"><a href="demostracion.html" class="nav-link active">Demo</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero-section-demo">
+            <div class="container hero-content-demo">
+                <div class="hero-text">
+                    <h1>Calcula. Imprime. Ahorra.</h1>
+                    <p>La herramienta definitiva para tu negocio de impresión 3D. Gestiona tu inventario, calcula costos precisos y controla tus ventas, todo desde tu celular.</p>
+                    <div class="cta-buttons-container">
+                        <a href="assets/app/3DMaterial.apk" class="cta-button primary" download>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM17 13l-5 5-5-5h3V9h4v4h3z"/></svg>
+                            Descargar APK para Android
+                        </a>
+                        <a href="calculadora.html" class="cta-button secondary">
+                            Probar Calculadora
+                        </a>
+                    </div>
+                    <span class="version-info">Versión 1.0.0 | Gratuita</span>
+                </div>
+                <div class="hero-image">
+                    <img src="./assets/images/WhatsApp Image 2025-07-21 at 9.24.10 AM (1).jpeg" alt="Captura de pantalla de la app 3D Material">
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="features-section">
+            <div class="container">
+                <h2>Características Principales</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="icon-wrapper">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"><path d="M21,16.5C21,16.88 20.79,17.21 20.47,17.38L12.57,21.82C12.21,22.04 11.79,22.04 11.43,21.82L3.53,17.38C3.21,17.21 3,16.88 3,16.5V7.5C3,7.12 3.21,6.79 3.53,6.62L11.43,2.18C11.79,1.96 12.21,1.96 12.57,2.18L20.47,6.62C20.79,6.79 21,7.12 21,7.5V16.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+                        <h3>Inventario Inteligente</h3>
+                        <p>Controla cada gramo de filamento. Gestiona todos tus materiales en un solo lugar.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon-wrapper">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5C3.9 3 3 3.9 3 5V19C3 20.1 3.9 21 5 21H19C20.1 21 21 20.1 21 19V5C21 3.9 20.1 3 19 3ZM13.5 15.5H10.5V12.5H13.5V15.5ZM13.5 10.5H10.5V7.5H13.5V10.5Z"/></svg>
+                        </div>
+                        <h3>Costos Precisos</h3>
+                        <p>Calculadora avanzada que incluye material, mano de obra y consumo eléctrico.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon-wrapper">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20ZM12.5 7H11V13L16.25 16.15L17 14.92L12.5 12.25V7Z" /></svg>
+                        </div>
+                        <h3>Historial y Ventas</h3>
+                        <p>Registra cada impresión, márcala como vendida y analiza tus ganancias.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon-wrapper">
+                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M7,2H17A2,2 0 0,1 19,4V20A2,2 0 0,1 17,22H7A2,2 0 0,1 5,20V4A2,2 0 0,1 7,2M7,4V8H17V4H7M7,10V12H9V10H7M11,10V12H13V10H11M15,10V12H17V10H15M7,14V16H9V14H7M11,14V16H13V14H11M15,14V16H17V14H15M7,18V20H9V18H7M11,18V20H13V18H11M15,18V20H17V18H15Z"/></svg>
+                        </div>
+                        <h3>Calculadora de Costos</h3>
+                        <p>Prueba nuestra calculadora web para estimar costos de forma rápida y precisa.</p>
+                        <div class="cta-buttons-container">
+                            <a href="calculadora.html" class="cta-button secondary">
+                                Probar Calculadora
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="container">
+                <h2>¿Listo para optimizar tu negocio?</h2>
+
+                <div class="cta-buttons-container">
+                    <a href="assets/app/3DMaterial.apk" class="cta-button primary" download>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM17 13l-5 5-5-5h3V9h4v4h3z"/></svg>
+                        Descargar para Android
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 3D Material. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>

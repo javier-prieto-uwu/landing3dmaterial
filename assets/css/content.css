@@ -1,0 +1,210 @@
+@import url('common.css');
+
+/* ========================================================================== 
+   Estilos para la Sección de Problemática 
+   ========================================================================== */ 
+
+.main-section {
+    margin-top: 4rem;
+}
+
+/* Contenedor general para el texto introductorio */ 
+.text-container { 
+    max-width: 800px; 
+    margin: 0 auto; 
+    text-align: center; 
+} 
+
+.text-container h3 { 
+    font-size: 2rem; 
+    font-family: var(--font-alt); 
+    margin-bottom: 1rem; 
+    color: var(--primary-text-color); 
+} 
+
+.section-intro { 
+    font-size: 1.3rem; 
+    color: var(--secondary-text-color); 
+    margin-bottom: 3rem; 
+} 
+
+/* Lista que contiene cada tarjeta de problema */ 
+.problem-list { 
+    list-style: none; 
+    text-align: left; 
+    margin-top: 2rem; 
+} 
+
+/* Tarjeta individual para cada problema */ 
+.problem-list li { 
+    background-color: var(--card-color); 
+    border: 1px solid var(--border-color); 
+    border-radius: 12px; 
+    padding: 1.5rem; 
+    margin-bottom: 1.5rem; 
+    display: flex; 
+    align-items: center; 
+    gap: 1.5rem; 
+    transition: all 0.3s ease; 
+    position: relative; 
+    overflow: hidden; 
+} 
+
+/* Efecto de borde superior animado al pasar el mouse */ 
+.problem-list li::before { 
+    content: ''; 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 3px; 
+    background: linear-gradient(90deg, var(--accent-color), #ff6b6b); 
+    transform: scaleX(0); 
+    transition: transform 0.3s ease; 
+} 
+
+.problem-list li:hover { 
+    transform: translateY(-2px); 
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); 
+    border-color: var(--accent-color); 
+} 
+
+.problem-list li:hover::before { 
+    transform: scaleX(1); 
+} 
+
+/* Círculo que contiene el ícono */ 
+.problem-icon { 
+    color: var(--accent-color); 
+    flex-shrink: 0; 
+    background: rgba(255, 107, 107, 0.1); /* Fondo rojizo suave */ 
+    border-radius: 50%; 
+    width: 60px; 
+    height: 60px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    transition: all 0.3s ease; 
+} 
+
+.problem-icon ion-icon, 
+.problem-icon svg { 
+    font-size: 28px; 
+    width: 32px; 
+    height: 32px; 
+} 
+
+.problem-list li:hover .problem-icon { 
+    background: var(--accent-color); 
+    color: white; 
+    transform: scale(1.1); 
+} 
+
+/* Contenedor del texto (título y descripción) */ 
+.problem-text h4 { 
+    font-size: 1.4rem; 
+    font-family: var(--font-alt); 
+    margin-bottom: 0.5rem; 
+    color: var(--primary-text-color); 
+    transition: color 0.3s ease; 
+} 
+
+.problem-text p { 
+    color: var(--secondary-text-color); 
+    line-height: 1.6; 
+} 
+
+.problem-list li:hover .problem-text h4 { 
+    color: var(--accent-color); 
+}
+
+/* ========================================================================== 
+   Estilos para la Sección de Solución 
+   ========================================================================== */ 
+
+/* Lista que contiene cada tarjeta de solución */ 
+.solution-list { 
+    list-style: none; 
+    text-align: left; 
+    margin-top: 2rem; 
+} 
+
+/* Tarjeta individual para cada solución */ 
+.solution-list li { 
+    background-color: var(--card-color); 
+    border: 1px solid var(--border-color); 
+    border-radius: 12px; 
+    padding: 1.5rem; 
+    margin-bottom: 1.5rem; 
+    display: flex; 
+    align-items: center; 
+    gap: 1.5rem; 
+    transition: all 0.3s ease; 
+    position: relative; 
+    overflow: hidden; 
+} 
+
+/* Efecto de borde superior animado al pasar el mouse */ 
+.solution-list li::before { 
+    content: ''; 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 3px; 
+    background: linear-gradient(90deg, var(--accent-color), #ff6b6b); 
+    transform: scaleX(0); 
+    transition: transform 0.3s ease; 
+} 
+
+.solution-list li:hover { 
+    transform: translateY(-2px); 
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); 
+    border-color: var(--accent-color); 
+} 
+
+.solution-list li:hover::before { 
+    transform: scaleX(1); 
+} 
+
+/* Círculo que contiene el ícono */ 
+.solution-icon { 
+    color: var(--accent-color); 
+    flex-shrink: 0; 
+    background: rgba(34, 197, 94, 0.1); /* Fondo verdoso suave */ 
+    border-radius: 50%; 
+    width: 60px; 
+    height: 60px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    transition: all 0.3s ease; 
+} 
+
+.solution-icon ion-icon { 
+    font-size: 32px; 
+} 
+
+.solution-list li:hover .solution-icon { 
+    background: var(--accent-color); 
+    color: white; 
+    transform: scale(1.1); 
+} 
+
+/* Contenedor del texto (título y descripción) */ 
+.solution-text h4 { 
+    font-size: 1.4rem; 
+    font-family: var(--font-alt); 
+    margin-bottom: 0.5rem; 
+    color: var(--primary-text-color); 
+    transition: color 0.3s ease; 
+} 
+
+.solution-text p { 
+    color: var(--secondary-text-color); 
+    line-height: 1.6; 
+} 
+
+.solution-list li:hover .solution-text h4 { 
+    color: var(--accent-color); 
+}

@@ -1,0 +1,230 @@
+/* ==========================================================================
+   1. Variables y Estilos Comunes (Importados de tu estilo)
+   ========================================================================== */
+:root {
+    --background-color: #0d0d0d;
+    --card-color: #181818;
+    --input-color: #252525;
+    --border-color: #333;
+    --primary-text-color: #f0f0f0;
+    --secondary-text-color: #a0a0a0;
+    --accent-color: #00e676;
+    --accent-color-hover: #00ff84;
+    --font-main: 'Inter', sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+    font-family: var(--font-main);
+    background-color: var(--background-color);
+    color: var(--primary-text-color);
+    line-height: 1.6;
+}
+.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+a { color: var(--accent-color); text-decoration: none; }
+
+/* ==========================================================================
+   2. Header (Consistente con el resto del sitio)
+   ========================================================================== */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(10, 10, 10, 0.9);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 2rem;
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 75px;
+    padding: 0 2rem;
+    margin-bottom: 1rem;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-item {
+    margin: 0;
+    padding: 0;
+}
+
+.nav-link {
+    color: var(--secondary-text-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--primary-text-color);
+    background-color: var(--card-color);
+}
+
+/* ==========================================================================
+   3. Estilos de la Página de Demo
+   ========================================================================== */
+.main-section { padding: 4rem 0; }
+
+.demo-intro {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+.demo-intro h1 {
+    font-size: 3rem;
+    font-weight: 900;
+    margin-bottom: 1rem;
+}
+.demo-intro p {
+    font-size: 1.2rem;
+    color: var(--secondary-text-color);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.demo-layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* El video ocupa más espacio */
+    gap: 2rem;
+    align-items: center;
+}
+
+#contenedor-demo {
+    background-color: var(--card-color);
+    border: 1px solid var(--border-color);
+    border-radius: 24px;
+    padding: 16px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+#contenedor-demo:hover {
+    border-color: var(--accent-color);
+    box-shadow: 0 10px 50px rgba(0, 230, 118, 0.15);
+}
+
+#video-captura {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 9 / 16; /* Proporción de celular vertical */
+    background-color: #000;
+    border-radius: 12px;
+    object-fit: contain;
+}
+
+/* Panel de Información */
+.info-panel {
+    background-color: var(--card-color);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 2rem;
+}
+.info-panel h3 {
+    font-size: 1.8rem;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+}
+.info-panel p {
+    color: var(--secondary-text-color);
+    margin-bottom: 1.5rem;
+}
+.features-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 2rem;
+}
+.features-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    color: var(--primary-text-color);
+}
+.features-list ion-icon {
+    color: var(--accent-color);
+    font-size: 1.5rem;
+    margin-top: 2px;
+}
+
+/* Botones de Acción */
+.action-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.cta-button, .secondary-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 14px 24px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.cta-button {
+    background-color: var(--accent-color);
+    color: var(--background-color);
+}
+.cta-button:hover {
+    background-color: var(--accent-color-hover);
+    transform: translateY(-3px);
+}
+.secondary-button {
+    background-color: transparent;
+    color: var(--secondary-text-color);
+    border: 1px solid var(--border-color);
+}
+.secondary-button:hover {
+    background-color: var(--card-color);
+    color: var(--primary-text-color);
+    border-color: var(--secondary-text-color);
+}
+
+/* ==========================================================================
+   4. Footer
+   ========================================================================== */
+.footer {
+    text-align: center;
+    padding: 2.5rem;
+    font-size: 0.9rem;
+    color: #888;
+    border-top: 1px solid var(--border-color);
+    margin-top: 3rem;
+}
+
+/* ==========================================================================
+   5. Responsividad
+   ========================================================================== */
+@media (max-width: 992px) {
+    .demo-layout {
+        grid-template-columns: 1fr; /* Apila las columnas en tablets y móviles */
+    }
+    #contenedor-demo {
+        max-width: 400px; /* Limita el ancho del video en pantallas pequeñas */
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 767px) {
+    .main-nav { display: none; }
+    .demo-intro h1 { font-size: 2.2rem; }
+    .demo-intro p { font-size: 1rem; }
+}

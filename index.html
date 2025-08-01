@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3DMaterial - Presentación del Proyecto</title>
+    <link rel="stylesheet" href="assets/css/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/common.css">
+</head>
+<body>
+    <div class="custom-cursor"></div>
+    <script>
+        document.addEventListener('mousemove', (e) => {
+            const cursor = document.querySelector('.custom-cursor');
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+    </script>
+    <header class="header">
+        <nav class="navbar">
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link active">Inicio</a></li>
+                <li class="nav-item"><a href="equipo.html" class="nav-link">Equipo</a></li>
+                <li class="nav-item"><a href="problematica.html" class="nav-link">Problemática</a></li>
+                <li class="nav-item"><a href="solucion.html" class="nav-link">Solución</a></li>
+                <li class="nav-item"><a href="canvas.html" class="nav-link">Canvas</a></li>
+                <li class="nav-item"><a href="demostracion.html" class="nav-link">Demo</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <img src="assets/images/logo.png" alt="Logo de 3DMaterial" class="hero-logo-main">
+                <p class="hero-subtitle">El mejor sistema gestor de materiales de impresión 3D.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <h2>Contenido de la Presentación</h2>
+                <div class="index-grid">
+                    <a href="equipo.html" class="index-card">
+                        <h3>I. Equipo de Trabajo</h3>
+                        <p>Conoce a los creadores del proyecto.</p>
+                    </a>
+                    <a href="problematica.html" class="index-card">
+                        <h3>II. Problemática</h3>
+                        <p>El desafío de la gestión de materiales.</p>
+                    </a>
+                    <a href="solucion.html" class="index-card">
+                        <h3>III. Propuesta de Solución</h3>
+                        <p>Nuestra innovadora app móvil.</p>
+                    </a>
+                    <a href="canvas.html" class="index-card">
+                        <h3>IV. Modelo Canvas</h3>
+                        <p>Nuestro modelo de negocio.</p>
+                    </a>
+                    <a href="demostracion.html" class="index-card">
+                        <h3>V. Demostración</h3>
+                        <p>Prueba la aplicación y conoce sus características.</p>
+                    </a>
+                     <a href="calculadora.html" class="index-card">
+                        <h3>Calculadora</h3>
+                        <p>Estima los costos de tus impresiones.</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 3DMaterial - TI51BISDSM Team 1. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>

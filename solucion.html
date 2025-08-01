@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solución - 3DMaterial</title>
+    <link rel="stylesheet" href="assets/css/content.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/common.css">
+</head>
+<body>
+    <div class="custom-cursor"></div>
+    <script>
+        document.addEventListener('mousemove', (e) => {
+            const cursor = document.querySelector('.custom-cursor');
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+    </script>
+    <header class="header">
+        <nav class="navbar">
+ 
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link">Inicio</a></li>
+                <li class="nav-item"><a href="equipo.html" class="nav-link">Equipo</a></li>
+                <li class="nav-item"><a href="problematica.html" class="nav-link">Problemática</a></li>
+                <li class="nav-item"><a href="solucion.html" class="nav-link active">Solución</a></li>
+                <li class="nav-item"><a href="canvas.html" class="nav-link">Canvas</a></li>
+                <li class="nav-item"><a href="demostracion.html" class="nav-link">Demo</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="section">
+            <div class="text-container">
+                <h3>Solución</h3>
+                <p class="section-intro">Una herramienta integral para tu negocio que revoluciona la gestión de impresión 3D.</p>
+                
+                <ul class="solution-list">
+                    <li>
+                        <div class="solution-icon">
+                            <ion-icon name="phone-portrait-outline"></ion-icon>
+                        </div>
+                        <div class="solution-text">
+                            <h4>Aplicación Móvil Nativa</h4>
+                            <p>Desarrollada específicamente para Android, ofrece una experiencia fluida y accesible desde cualquier dispositivo móvil, permitiendo gestión en tiempo real.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="solution-icon">
+                            <ion-icon name="server-outline"></ion-icon>
+                        </div>
+                        <div class="solution-text">
+                            <h4>Control Centralizado</h4>
+                            <p>Sistema unificado que centraliza el inventario, costos, historial de impresiones y gestión de proyectos en una sola plataforma intuitiva.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="solution-icon">
+                            <ion-icon name="analytics-outline"></ion-icon>
+                        </div>
+                        <div class="solution-text">
+                            <h4>Análisis y Optimización</h4>
+                            <p>Herramientas avanzadas de análisis que optimizan el uso de recursos, reducen desperdicios y mejoran la rentabilidad de cada proyecto.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="solution-icon">
+                            <ion-icon name="calculator-outline"></ion-icon>
+                        </div>
+                        <div class="solution-text">
+                            <h4>Calculadora Inteligente</h4>
+                            <p>Cálculo automático y preciso de costos de impresión basado en material, tiempo y configuraciones específicas de cada proyecto.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="solution-icon">
+                            <ion-icon name="cloud-outline"></ion-icon>
+                        </div>
+                        <div class="solution-text">
+                            <h4>Sincronización en la Nube</h4>
+                            <p>Respaldo automático y sincronización de datos en Firebase, garantizando seguridad, accesibilidad y continuidad de la información.</p>
+                        </div>
+                    </li>
+                </ul>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 3DMaterial - TI51BISDSM Team 1. Todos los derechos reservados.</p>
+    </footer>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

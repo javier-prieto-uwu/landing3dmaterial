@@ -1,0 +1,187 @@
+@import 'common.css';
+
+/* ========================================================================== 
+    Estilos para la Sección de Canvas 
+    ========================================================================== */ 
+
+.main-section {
+    margin-top: 4rem;
+}
+
+/* Cuadrícula principal para las tarjetas del canvas */ 
+.canvas-grid { 
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 1.5rem; 
+    margin-top: 2rem; 
+} 
+
+/* Tarjeta individual para cada sección del canvas */ 
+.canvas-card { 
+    background-color: var(--card-color); 
+    padding: 2rem; 
+    border-radius: 16px; 
+    border: 1px solid var(--border-color); 
+    transition: all 0.3s ease; 
+    position: relative; 
+    overflow: hidden; 
+} 
+
+/* Efecto de borde superior animado */ 
+.canvas-card::before { 
+    content: ''; 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    height: 4px; 
+    background: linear-gradient(90deg, #4CAF50, #81C784); 
+    opacity: 0; 
+    transition: opacity 0.3s ease; 
+} 
+
+.canvas-card:hover { 
+    transform: translateY(-5px); 
+    border-color: #4CAF50; 
+    box-shadow: 0 10px 30px rgba(76, 175, 80, 0.2); 
+} 
+
+.canvas-card:hover::before { 
+    opacity: 1; 
+} 
+
+/* Encabezado de la tarjeta (ícono y título) */ 
+.canvas-header { 
+    display: flex; 
+    align-items: center; 
+    gap: 1rem; 
+    margin-bottom: 1.5rem; 
+} 
+
+.canvas-icon { 
+    font-size: 2.1rem; 
+    color: #4CAF50; 
+    background: rgba(76, 175, 80, 0.1); 
+    padding: 0.8rem; 
+    border-radius: 12px; 
+    transition: all 0.3s ease; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} 
+
+.canvas-card:hover .canvas-icon { 
+    background: rgba(76, 175, 80, 0.2); 
+    transform: scale(1.1); 
+} 
+
+.canvas-card h4 { 
+    font-size: 1.6rem; 
+    margin: 0; 
+    font-family: var(--font-alt); 
+    color: var(--primary-text-color); 
+    font-weight: 600; 
+    transition: color 0.3s ease; 
+} 
+
+.canvas-card:hover h4 { 
+    color: #4CAF50; 
+} 
+
+/* Lista de elementos dentro de una tarjeta */ 
+.canvas-card ul { 
+    list-style: none; 
+    padding-left: 0; 
+    margin: 0; 
+} 
+
+.canvas-card li { 
+    font-size: 1.2rem; 
+    color: var(--secondary-text-color); 
+    margin-bottom: 0.8rem; 
+    display: flex; 
+    align-items: center; 
+    gap: 0.8rem; 
+    padding: 0.5rem 0; 
+    border-bottom: 1px solid rgba(42, 42, 42, 0.5); 
+    transition: color 0.3s ease; 
+} 
+
+.canvas-card li:last-child { 
+    border-bottom: none; 
+    margin-bottom: 0; 
+} 
+
+.canvas-card:hover li { 
+    color: var(--primary-text-color); 
+} 
+
+.canvas-card li ion-icon { 
+    font-size: 1.3rem; 
+    color: #4CAF50; 
+    flex-shrink: 0; 
+    transition: all 0.3s ease; 
+} 
+
+.canvas-card:hover li ion-icon { 
+    color: #2E7D32; 
+    transform: scale(1.1); 
+} 
+
+/* Párrafos dentro de una tarjeta */ 
+.canvas-card p { 
+    font-size: 1.2rem; 
+    color: var(--secondary-text-color); 
+    line-height: 1.6; 
+    margin: 0; 
+    transition: color 0.3s ease; 
+} 
+
+.canvas-card:hover p { 
+    color: var(--primary-text-color); 
+} 
+
+/* Modificador para tarjetas que ocupan todo el ancho */ 
+.canvas-card.full-width { 
+    grid-column: span 3; 
+} 
+
+/* Colores específicos para los íconos de cada sección del canvas */ 
+.canvas-card.partners .canvas-icon { color: #3b82f6; background: rgba(59, 130, 246, 0.1); } 
+.canvas-card.activities .canvas-icon { color: #f59e0b; background: rgba(245, 158, 11, 0.1); } 
+.canvas-card.value .canvas-icon { color: #ef4444; background: rgba(239, 68, 68, 0.1); } 
+.canvas-card.relationship .canvas-icon { color: #ec4899; background: rgba(236, 72, 153, 0.1); } 
+.canvas-card.segments .canvas-icon { color: #8b5cf6; background: rgba(139, 92, 246, 0.1); } 
+.canvas-card.resources .canvas-icon { color: #06b6d4; background: rgba(6, 182, 212, 0.1); } 
+.canvas-card.channels .canvas-icon { color: #84cc16; background: rgba(132, 204, 22, 0.1); } 
+.canvas-card.cost .canvas-icon { color: #f97316; background: rgba(249, 115, 22, 0.1); } 
+.canvas-card.revenue .canvas-icon { color: var(--primary-color); background: rgba(76, 175, 80, 0.1); } 
+
+/* Efectos hover para los íconos con colores específicos */ 
+.canvas-card:hover .canvas-icon.partners { background: #3b82f6; color: white; } 
+.canvas-card:hover .canvas-icon.activities { background: #f59e0b; color: white; } 
+.canvas-card:hover .canvas-icon.value { background: #ef4444; color: white; } 
+.canvas-card:hover .canvas-icon.relationship { background: #ec4899; color: white; } 
+.canvas-card:hover .canvas-icon.segments { background: #8b5cf6; color: white; } 
+.canvas-card:hover .canvas-icon.resources { background: #06b6d4; color: white; } 
+.canvas-card:hover .canvas-icon.channels { background: #84cc16; color: white; } 
+.canvas-card:hover .canvas-icon.cost { background: #f97316; color: white; } 
+.canvas-card:hover .canvas-icon.revenue { background: var(--primary-color); color: white; } 
+
+/* ========================================================================== 
+    Responsividad para la Sección de Canvas 
+    ========================================================================== */ 
+@media (max-width: 768px) { 
+    .canvas-grid { 
+        grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */ 
+        gap: 1rem; 
+    } 
+    
+    .canvas-card.full-width { 
+        grid-column: span 1; 
+    } 
+    
+    .canvas-card { 
+        padding: 1.5rem; 
+    } 
+}

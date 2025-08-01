@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demostración - 3D Material</title>
+    <!-- Enlace actualizado al nuevo nombre del archivo CSS -->
+    <link rel="stylesheet" href="assets/css/common.css">
+    <link rel="stylesheet" href="assets/css/presentacion.css"> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="custom-cursor"></div>
+    <script>
+        document.addEventListener('mousemove', (e) => {
+            const cursor = document.querySelector('.custom-cursor');
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+    </script>
+    
+    <header class="header">
+        <nav class="navbar">
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link">Inicio</a></li>
+                <li class="nav-item"><a href="equipo.html" class="nav-link">Equipo</a></li>
+                <li class="nav-item"><a href="problematica.html" class="nav-link">Problemática</a></li>
+                <li class="nav-item"><a href="solucion.html" class="nav-link">Solución</a></li>
+                <li class="nav-item"><a href="canvas.html" class="nav-link">Canvas</a></li>
+                <li class="nav-item"><a href="demostracion.html" class="nav-link">Demo</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-section">
+        <div class="container">
+            <div class="demo-intro">
+                <h1>Demostración en Vivo</h1>
+                <p>Mira cómo funciona 3D Material en tiempo real. Inicia la demo para compartir tu pantalla y grabar una demostración o simplemente observa el video de ejemplo.</p>
+            </div>
+
+            <div class="demo-layout">
+                <!-- Columna del Video -->
+                <div id="contenedor-demo">
+                    <video id="video-captura" autoplay playsinline muted loop>
+                        <!-- Un video de ejemplo se reproducirá hasta que el usuario inicie la demo -->
+                        <source src="https://placehold.co/1920x1080.mp4?text=Video+Ejemplo" type="video/mp4">
+                        Tu navegador no soporta el elemento de video.
+                    </video>
+                </div>
+
+                <!-- Columna de Información -->
+                <div class="info-panel">
+                    <h3>Funciones Clave</h3>
+                    <p>La app está diseñada para ser rápida, intuitiva y poderosa. Esto es lo que puedes hacer:</p>
+                    <ul class="features-list">
+                        <li>
+                            <ion-icon name="cube-outline"></ion-icon>
+                            <span>Gestiona un inventario detallado de filamentos, resinas y más.</span>
+                        </li>
+                        <li>
+                            <ion-icon name="calculator-outline"></ion-icon>
+                            <span>Calcula costos precisos incluyendo mano de obra y electricidad.</span>
+                        </li>
+                        <li>
+                            <ion-icon name="cash-outline"></ion-icon>
+                            <span>Registra ventas, asigna clientes y analiza tus ganancias.</span>
+                        </li>
+                        <li>
+                            <ion-icon name="folder-open-outline"></ion-icon>
+                            <span>Organiza tus impresiones en proyectos para un mejor seguimiento.</span>
+                        </li>
+                    </ul>
+                    <div class="action-buttons">
+                         <button id="btn-iniciar-captura" class="cta-button">
+                            <ion-icon name="play-circle-outline"></ion-icon>
+                            Iniciar Demo
+                        </button>
+                        <a href="descarga.html" class="secondary-button">
+                            <ion-icon name="download-outline"></ion-icon>
+                            Descargar APK
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 3D Material. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Tu script de funcionalidad no ha cambiado -->
+    <script>
+        const videoElemento = document.getElementById('video-captura');
+        const botonIniciar = document.getElementById('btn-iniciar-captura');
+        let streamActivo = null;
+
+        botonIniciar.addEventListener('click', async () => {
+            if (streamActivo) {
+                streamActivo.getTracks().forEach(track => track.stop());
+                videoElemento.srcObject = null;
+                streamActivo = null;
+                botonIniciar.innerHTML = '<ion-icon name="play-circle-outline"></ion-icon> Iniciar Demo';
+            } else {
+                try {
+                    const mediaStream = await navigator.mediaDevices.getDisplayMedia({
+                        video: { cursor: "always" },
+                        audio: false
+                    });
+                    streamActivo = mediaStream;
+                    videoElemento.srcObject = mediaStream;
+                    botonIniciar.innerHTML = '<ion-icon name="stop-circle-outline"></ion-icon> Detener Demo';
+
+                    mediaStream.getVideoTracks()[0].addEventListener('ended', () => {
+                        videoElemento.srcObject = null;
+                        streamActivo = null;
+                        botonIniciar.innerHTML = '<ion-icon name="play-circle-outline"></ion-icon> Iniciar Demo';
+                    });
+                } catch (error) {
+                    console.error("Error al capturar la pantalla:", error);
+                    alert("No se pudo iniciar la captura de pantalla. Asegúrate de dar los permisos necesarios.");
+                }
+            }
+        });
+    </script>
+    
+    <!-- Scripts para los iconos -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

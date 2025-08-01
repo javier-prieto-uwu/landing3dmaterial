@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equipo - 3DMaterial</title>
+    <link rel="stylesheet" href="assets/css/equipo.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/common.css">
+</head>
+<body>
+    <div class="custom-cursor"></div>
+    <script>
+        document.addEventListener('mousemove', (e) => {
+            const cursor = document.querySelector('.custom-cursor');
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+    </script>
+    <header class="header">
+        <nav class="navbar">
+
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link">Inicio</a></li>
+                <li class="nav-item"><a href="equipo.html" class="nav-link active">Equipo</a></li>
+                <li class="nav-item"><a href="problematica.html" class="nav-link">Problemática</a></li>
+                <li class="nav-item"><a href="solucion.html" class="nav-link">Solución</a></li>
+                <li class="nav-item"><a href="canvas.html" class="nav-link">Canvas</a></li>
+                <li class="nav-item"><a href="demostracion.html" class="nav-link">Demo</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="section">
+            <div class="container">
+                <div class="text-container">
+                    <h2>Equipo de Trabajo</h2>
+                    <p class="section-intro">Conoce al talentoso equipo detrás de 3D Material, profesionales especializados en desarrollo de software y experiencia de usuario.</p>
+                </div>
+                
+                <div class="team-grid">
+                    <div class="team-member-card">
+                        <div class="member-image">
+                            <img src="assets/images/michelle.jpeg" alt="Foto de Michel Carrau">
+                        </div>
+                        <div class="member-info">
+                            <h3>Michel Carrau</h3>
+                            <p class="role">UX/UI Designer</p>
+                            <p class="description">Especialista en diseño de interfaces y experiencia de usuario, enfocado en crear soluciones intuitivas y atractivas.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="team-member-card">
+                        <div class="member-image">
+                            <img src="assets/images/javier.jpeg" alt="Foto de Javier Prieto">
+                        </div>
+                        <div class="member-info">
+                            <h3>Javier Prieto</h3>
+                            <p class="role">Full Stack Developer</p>
+                            <p class="description">Desarrollador con experiencia en tecnologías frontend y backend, especializado en aplicaciones móviles y web.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="team-member-card">
+                        <div class="member-image">
+                            <img src="assets/images/daniel.jpeg" alt="Foto de Daniel Chan">
+                        </div>
+                        <div class="member-info">
+                            <h3>Daniel Chan</h3>
+                            <p class="role">Scrum Master</p>
+                            <p class="description">Líder de proyecto especializado en metodologías ágiles, garantizando la entrega eficiente y calidad del producto.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="team-member-card">
+                        <div class="member-image">
+                            <img src="assets/images/karla.jpeg" alt="Foto de Karla Muñoz">
+                        </div>
+                        <div class="member-info">
+                            <h3>Karla Muñoz</h3>
+                            <p class="role">UX/UI Designer</p>
+                            <p class="description">Diseñadora creativa especializada en investigación de usuarios y prototipado, creando experiencias memorables.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="team-member-card">
+                        <div class="member-image">
+                            <img src="./assets/images/WhatsApp Image 2025-07-31 at 2.46.00 PM.jpeg" alt="Foto de Sebastián Tun">
+                        </div>
+                        <div class="member-info">
+                            <h3>Sebastián Tun</h3>
+                            <p class="role">Frontend Developer</p>
+                            <p class="description">Desarrollador frontend especializado en tecnologías modernas, enfocado en performance y accesibilidad web.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 3DMaterial - TI51BISDSM Team 1. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>

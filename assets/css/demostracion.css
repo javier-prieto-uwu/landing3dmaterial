@@ -1,0 +1,269 @@
+@import 'common.css';
+
+/* ========================================================================== 
+    Estilos para la Sección de Demostración (demostracion.html) 
+    ========================================================================== */ 
+
+.main-section {
+    margin-top: 4rem;
+}
+
+/* Estilo para la sección principal (Hero) de la página de demostración */ 
+.hero-section-demo { 
+    padding: 4rem 0; 
+} 
+
+.hero-content-demo { 
+    display: flex; 
+    align-items: center; 
+    gap: 3rem; 
+} 
+
+.hero-text { 
+    flex: 1; 
+} 
+
+.hero-text h1 { 
+    font-family: var(--font-alt); 
+    font-size: 4rem; 
+    font-weight: 900; 
+    line-height: 1.1; 
+    margin-bottom: 1rem; 
+} 
+
+.hero-text p { 
+    font-size: 1.3rem; 
+    color: var(--secondary-text-color); 
+    margin-bottom: 2rem; 
+    max-width: 500px; 
+} 
+
+.hero-image { 
+    flex: 1; 
+    text-align: center; 
+} 
+
+.hero-image img { 
+    max-width: 100%; 
+    max-height: 500px; 
+    border-radius: 20px; 
+} 
+
+.version-info { 
+    font-size: 1.1rem; 
+    color: #888; 
+    display: block; 
+    margin-top: 1rem; 
+} 
+
+/* Contenedor de botones */
+.cta-buttons-container {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+/* Botón principal de llamada a la acción */ 
+.cta-button { 
+    display: inline-flex; 
+    align-items: center; 
+    justify-content: center;
+    gap: 0.75rem; 
+    background-color: var(--accent-color); 
+    color: #0a0a0a; 
+    padding: 1rem 2rem; 
+    border-radius: 12px; 
+    text-decoration: none; 
+    font-weight: 600; 
+    font-size: 1.1rem; 
+    transition: all 0.3s ease; 
+    border: 2px solid var(--accent-color); 
+    min-width: 200px;
+    box-shadow: 0 4px 6px rgba(34, 197, 94, 0.2);
+} 
+
+.cta-button:hover { 
+    background-color: var(--accent-color-hover); 
+    border-color: var(--accent-color-hover); 
+    transform: translateY(-2px); 
+    box-shadow: 0 6px 8px rgba(34, 197, 94, 0.3);
+}
+
+.cta-button.secondary {
+    background-color: transparent;
+    color: var(--accent-color);
+    border: 2px solid var(--accent-color);
+    box-shadow: none;
+}
+
+.cta-button.secondary:hover {
+    background-color: var(--accent-color);
+    color: #0a0a0a;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(34, 197, 94, 0.3);
+}
+
+.cta-button.primary {
+    background-color: var(--accent-color);
+    color: #0a0a0a;
+    box-shadow: 0 4px 6px rgba(34, 197, 94, 0.1);
+}
+
+.feature-card .cta-buttons-container {
+    margin-top: 1.5rem;
+}
+
+
+.cta-section .cta-buttons-container {
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+/* Sección de características */ 
+.features-section { 
+    padding: 6rem 0; 
+    background-color: #000; 
+} 
+
+.features-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 2rem; 
+} 
+
+.feature-card { 
+    background-color: var(--card-color); 
+    padding: 2rem; 
+    border-radius: 12px; 
+    border: 1px solid var(--border-color); 
+} 
+
+.icon-wrapper { 
+    background-color: rgba(34, 197, 94, 0.1); 
+    width: 60px; 
+    height: 60px; 
+    border-radius: 50%; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    margin-bottom: 1.5rem; 
+    color: var(--accent-color); 
+} 
+
+.icon-wrapper svg { 
+    width: 28px; 
+    height: 28px; 
+} 
+
+.feature-card h3 { 
+    font-size: 1.8rem; 
+    margin-bottom: 0.5rem; 
+    font-family: var(--font-alt); 
+} 
+
+.feature-card p { 
+    color: var(--secondary-text-color); 
+} 
+
+/* Sección de llamada a la acción final */ 
+.cta-section { 
+    padding: 6rem 0; 
+    text-align: center; 
+    background-color: var(--card-color); 
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+} 
+
+.cta-section h2 { 
+    font-size: 2.8rem;
+    max-width: 700px; 
+    margin-left: auto; 
+    margin-right: auto; 
+    margin-bottom: 2rem;
+    background: linear-gradient(135deg, var(--primary-text-color) 0%, var(--accent-color) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+} 
+
+.cta-section p {
+    color: var(--secondary-text-color);
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto 3rem;
+}
+
+.qr-code-container {
+    background: linear-gradient(to bottom right, rgba(34, 197, 94, 0.1), rgba(34, 197, 94, 0.05));
+    padding: 2rem;
+    border-radius: 16px;
+    display: inline-block;
+    margin-bottom: 2rem;
+}
+
+.qr-code { 
+    width: 200px; 
+    border-radius: 12px; 
+    display: block; 
+    margin: 0 auto; 
+    border: 4px solid var(--accent-color); 
+    box-shadow: 0 8px 16px rgba(34, 197, 94, 0.15);
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .hero-content-demo {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+    }
+
+    .hero-text h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-text p {
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 1.1rem;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .cta-buttons-container {
+        justify-content: center;
+    }
+
+    .cta-button {
+        width: 100%;
+        max-width: 300px;
+        padding: 0.875rem 1.5rem;
+        font-size: 1rem;
+    }
+
+    .cta-section {
+        padding: 4rem 0;
+    }
+
+    .cta-section h2 {
+        font-size: 2.2rem;
+        padding: 0 1rem;
+    }
+
+    .cta-section p {
+        font-size: 1.1rem;
+        padding: 0 1rem;
+    }
+
+    .qr-code-container {
+        padding: 1.5rem;
+        margin: 0 1rem 2rem;
+    }
+
+    .qr-code {
+        width: 160px;
+    }
+}

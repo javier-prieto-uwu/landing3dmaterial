@@ -1,0 +1,125 @@
+@import url('common.css');
+
+/* ========================================================================== 
+   Estilos para la Sección de Equipo 
+   ========================================================================== */ 
+
+.main-section {
+    margin-top: 100rem;
+}
+
+/* Contenedor principal para los miembros del equipo */ 
+.team-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Crea una cuadrícula responsiva */ 
+    gap: 2rem; 
+    margin-top: 2rem; 
+} 
+
+/* Tarjeta individual para cada miembro del equipo */ 
+.team-member-card { 
+    background-color: var(--card-color); 
+    border: 1px solid var(--border-color); 
+    border-radius: 12px; 
+    padding: 2rem; 
+    text-align: center; 
+    transition: all 0.3s ease; 
+    position: relative; 
+    overflow: hidden; 
+} 
+
+/* Efecto de borde superior al pasar el mouse */ 
+.team-member-card::before { 
+    content: ''; 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 3px; 
+    background: linear-gradient(90deg, #4CAF50, #81C784); 
+    transform: scaleX(0); 
+    transition: transform 0.3s ease; 
+} 
+
+.team-member-card:hover { 
+    transform: translateY(-5px); 
+    box-shadow: 0 10px 30px rgba(76, 175, 80, 0.2); 
+    border-color: #4CAF50; 
+} 
+
+.team-member-card:hover::before { 
+    transform: scaleX(1); 
+} 
+
+/* Contenedor de la imagen del miembro */ 
+.member-image { 
+    margin-bottom: 1.5rem; 
+    position: relative; 
+} 
+
+.member-image img { 
+    width: 120px; 
+    height: 120px; 
+    border-radius: 50%; 
+    object-fit: cover; 
+    border: 4px solid var(--border-color); 
+    transition: all 0.3s ease; 
+} 
+
+.team-member-card:hover .member-image img { 
+    border-color: #4CAF50; 
+    transform: scale(1.05); 
+} 
+
+/* Contenedor de la información (nombre, rol, descripción) */ 
+.member-info h3 { 
+    font-size: 1.6rem; 
+    margin-bottom: 0.5rem; 
+    font-family: var(--font-alt); 
+    color: var(--primary-text-color); 
+    transition: color 0.3s ease; 
+} 
+
+.team-member-card:hover .member-info h3 { 
+    color: #4CAF50; 
+} 
+
+.member-info .role { 
+    font-size: 1.2rem; 
+    color: #4CAF50; 
+    font-weight: 600; 
+    margin-bottom: 1rem; 
+    text-transform: uppercase; 
+    letter-spacing: 0.5px; 
+} 
+
+.member-info .description { 
+    font-size: 1.1rem; 
+    color: var(--secondary-text-color); 
+    line-height: 1.6; 
+    margin: 0; 
+    transition: color 0.3s ease; 
+} 
+
+.team-member-card:hover .member-info .description { 
+    color: var(--primary-text-color); 
+} 
+
+/* ========================================================================== 
+   Responsividad para la Sección de Equipo 
+   ========================================================================== */ 
+@media (max-width: 768px) { 
+    .team-grid { 
+        grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */ 
+        gap: 1.5rem; 
+    } 
+    
+    .team-member-card { 
+        padding: 1.5rem; 
+    } 
+    
+    .member-image img { 
+        width: 100px; 
+        height: 100px; 
+    } 
+}
